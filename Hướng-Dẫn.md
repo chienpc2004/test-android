@@ -1,7 +1,7 @@
 ESP32 + Firebase Realtime Database + DHT22 + LED Control
-Dự án này sử dụng ESP32 để thu thập dữ liệu nhiệt độ và độ ẩm từ cảm biến DHT22, sau đó gửi dữ liệu lên Firebase Realtime Database. Ngoài ra, người dùng có thể điều khiển LED từ xa thông qua Firebase, đồng thời bật nháy một LED cảnh báo khi nhiệt độ vượt quá ngưỡng cho phép.
 
-🛠Tính năng chính
+TÍNH NĂNG CHÍNH:
+
 Kết nối WiFi và Firebase Realtime Database.
 
 Đọc dữ liệu từ cảm biến DHT22 (nhiệt độ, độ ẩm).
@@ -12,7 +12,8 @@ Tự động nháy đèn cảnh báo khi nhiệt độ vượt quá 35°C.
 
 Gửi dữ liệu nhiệt độ/độ ẩm liên tục lên Firebase.
 
-Phần cứng sử dụng
+PHẦN CỨNG SỬ DỤNG:
+
 ESP32
 
 Cảm biến DHT22
@@ -22,15 +23,19 @@ Cảm biến DHT22
 Điện trở và dây nối
 
 Thư viện cần cài đặt
+
 Firebase_ESP_Client
 
 DHT sensor library for ESPx
 
 WiFi.h (mặc định có sẵn trong ESP32 core)
 
-Cấu trúc Firebase Realtime Database (ví dụ)
+CẤU TRÚC Firebase :
+
 json
+
 Copy
+
 Edit
 {
   "esp32": {
@@ -39,7 +44,9 @@ Edit
     "humidity": 60.2
   }
 }
-Cách sử dụng
+
+CÁCH SỬ DỤNG:
+
 Tạo dự án trên Firebase và bật Realtime Database.
 
 Cập nhật FIREBASE_HOST, FIREBASE_AUTH, WiFi SSID và Password trong code.
