@@ -1,0 +1,5 @@
+<resources>
+    <string name="highest">Highest</string>
+    <string name="above_threshold">Above Threshold</string>
+    <string name="time_above">12h</string>
+</resources>
