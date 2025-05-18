@@ -1,5 +1,4 @@
 DỰ ÁN: ESP32 + Firebase Realtime Database + DHT22 + LED Control
-
 Tính năng chính:
 -Kết nối WiFi và Firebase Realtime Database.
 -Đọc dữ liệu từ cảm biến DHT22 (nhiệt độ, độ ẩm).
