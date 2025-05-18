@@ -1,42 +1,32 @@
-ESP32 + Firebase Realtime Database + DHT22 + LED Control
+# 🔥 ESP32 + Firebase Realtime Database + DHT22 + Điều khiển LED
 
-TÍNH NĂNG CHÍNH:
+## 🛠️ Tính năng chính
 
-Kết nối WiFi và Firebase Realtime Database.
+- Kết nối WiFi và Firebase Realtime Database.
+- Đọc dữ liệu từ cảm biến DHT22 (nhiệt độ và độ ẩm).
+- Điều khiển LED từ xa thông qua Firebase (bật/tắt).
+- Tự động nháy đèn cảnh báo khi nhiệt độ vượt quá 35°C.
+- Gửi dữ liệu nhiệt độ và độ ẩm liên tục lên Firebase.
 
-Đọc dữ liệu từ cảm biến DHT22 (nhiệt độ, độ ẩm).
+## 🧰 Phần cứng sử dụng
 
-Điều khiển LED từ Firebase (bật/tắt từ xa).
+- ESP32
+- Cảm biến DHT22
+- 2 đèn LED
+- Các điện trở (ví dụ: 220Ω)
+- Dây nối và breadboard
 
-Tự động nháy đèn cảnh báo khi nhiệt độ vượt quá 35°C.
+## 🔧 Thư viện cần cài đặt
 
-Gửi dữ liệu nhiệt độ/độ ẩm liên tục lên Firebase.
+Hãy đảm bảo bạn đã cài các thư viện sau bằng Arduino Library Manager:
 
-PHẦN CỨNG SỬ DỤNG:
+- `Firebase_ESP_Client`
+- `DHT sensor library for ESPx`
+- `WiFi.h` (đã có sẵn khi cài đặt ESP32 board)
 
-ESP32
+## 📁 Cấu trúc Firebase Realtime Database
 
-Cảm biến DHT22
-
-2 đèn LED
-
-Điện trở và dây nối
-
-Thư viện cần cài đặt
-
-Firebase_ESP_Client
-
-DHT sensor library for ESPx
-
-WiFi.h (mặc định có sẵn trong ESP32 core)
-
-CẤU TRÚC Firebase :
-
-json
-
-Copy
-
-Edit
+```json
 {
   "esp32": {
     "light": "ON",
@@ -44,15 +34,3 @@ Edit
     "humidity": 60.2
   }
 }
-
-CÁCH SỬ DỤNG:
-
-Tạo dự án trên Firebase và bật Realtime Database.
-
-Cập nhật FIREBASE_HOST, FIREBASE_AUTH, WiFi SSID và Password trong code.
-
-Upload code lên ESP32.
-
-Quan sát serial monitor để theo dõi dữ liệu.
-
-Sử dụng Firebase để thay đổi giá trị esp32/light thành "ON" hoặc "OFF" để điều khiển LED.
