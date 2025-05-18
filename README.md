@@ -1,95 +1,37 @@
-# ESP32 + DHT22 + LEDs with Firebase and App 
+# 🔥 ESP32 + Firebase Realtime Database + DHT22 + LED Control
 
-This project demonstrates how to use an **ESP32** microcontroller to:
+This project uses an **ESP32** to collect **temperature** and **humidity** data from a **DHT22** sensor and send it to **Firebase Realtime Database**. It also allows **remote LED control** via Firebase and includes a **temperature alert** using a blinking LED when the temperature exceeds a threshold.
 
-- Read **temperature and humidity** from a **DHT22** sensor
-- **Send** sensor data to **Firebase**
-- **Receive** control signals from Firebase to **LEDs**
-- **Control LEDs using a custom Android mobile app**
+## 🛠️ Features
 
----
+- 📡 Connects to WiFi and Firebase Realtime Database
+- 🌡️ Reads temperature and humidity from DHT22
+- 💡 Controls an LED remotely via Firebase
+- 🚨 Blinks a second LED when temperature > 35°C
+- 📤 Uploads data to Firebase every 2 seconds
 
-## 🔧 Hardware Requirements
+## 🧰 Hardware Requirements
 
-- ESP32 development board
-- DHT22 sensor
-- LEDs + 220Ω resistors
-- Jumper wires, Breadboard
-- Internet-connected Wi-Fi network
+- ESP32 board
+- DHT22 temperature & humidity sensor
+- 2 LEDs
+- 2 Resistors (220Ω recommended)
+- Breadboard and jumper wires
 
----
+## 🔧 Required Libraries
 
-## 📷 Wiring Diagram
+Make sure to install the following libraries via the Arduino Library Manager:
 
-| Component | ESP32 GPIO |
-|----------|------------|
-| DHT22 (Data) | GPIO 4 |
-| LED 1        | GPIO 25 |
+- [`Firebase_ESP_Client`](https://github.com/mobizt/Firebase-ESP-Client)
+- [`DHT sensor library for ESPx`](https://github.com/beegee-tokyo/DHTesp)
 
+## 📁 Firebase Realtime Database Structure
 
----
-
-## 📲 Firebase Setup
-
-1. Create a project at [Firebase Console](https://console.firebase.google.com/)
-2. Enable **Email/Password** authentication
-3. Go to **Realtime Database** → Create database in test mode
-4. Copy your **API Key** and **Database URL** from **Project Settings**
-5. Update the following values in `main.ino`:
-   Go to Library Manager and install Mobitz's Firebase package
-   ```cpp
-   #include <WiFi.h>
-   #include <Firebase_ESP_Client.h>
-   #include <DHT.h>
-   const char* ssid = "Name Wifi";
-   const char* password = "Password Wifi";
-   #define FIREBASE_HOST "https//"
-   #define FIREBASE_AUTH "secrets code"
-
----
-
-🛠️ Step-by-Step Android Studio Setup
-1. **Create Android Project**
-  -Open Android Studio
-   
-  - Click New Project → Choose Empty Activity
-  
-  - Name your app (e.g., ESP32ControlApp)
-  
-  - Language: Java or Kotlin (examples below use Java)
-  
-  - Finish setup
-
-2. **Connect Firebase to Your Project**
-  - In Android Studio:
-
-  - Open Tools > Firebase
-
-  - Under Realtime Database, click:
-
-  - "Set up Firebase Realtime Database"
-
-  - Connect to your Firebase project
-
-  - Accept changes to build.gradle
-
-3. **Add Dependencies (Optional Manual)**
-   
-  - If Firebase Assistant is not available, manually add these to **app/build.gradle**:
-
-  - Add to the bottom of **build.gradle** (Project):
-
-  - implementation 'com.google.firebase:firebase-database:20.3.0'
-
-  - implementation 'com.google.firebase:firebase-auth:22.3.1'
-
----
-
-   In **app/build.gradle**, apply:
-
-  - classpath 'com.google.gms:google-services:4.4.1'
-  - apply plugin: 'com.google.gms.google-services'
-
----
-
-# Build Layout and Run Program
+```json
+{
+  "esp32": {
+    "light": "ON",
+    "temperature": 28.5,
+    "humidity": 60.2
+  }
+}
