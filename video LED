@@ -1,1 +1,25 @@
-[👉 Xem video trên YouTube Shorts](https://youtube.com/shorts/6BPG1ipkBdA?feature=share)
+# 🚀 My Arduino + Firebase Project
+
+This project uses ESP32 and Firebase to read sensor data and send it to the cloud.
+
+---
+
+## 🎬 Demo Video
+
+👉 [Watch on YouTube Shorts](https://youtube.com/shorts/6BPG1ipkBdA?feature=share)
+
+---
+
+## 📦 Required Libraries
+
+Make sure to install the following libraries via the Arduino Library Manager:
+
+<ul>
+  <li><a href="https://github.com/mobizt/Firebase-ESP-Client"><code>Firebase_ESP_Client</code></a></li>
+  <li><a href="https://github.com/beegee-tokyo/DHTesp"><code>DHT sensor library for ESPx</code></a></li>
+</ul>
+
+---
+
+## 📁 Project Structure
+
